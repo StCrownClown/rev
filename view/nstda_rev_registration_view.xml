@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="view_nstda_rev_registration_form">
+			<field name="name">nstda.rev.registration.form</field>
+			<field name="model">nstda.rev.registration</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="nstda_rev_registration" create="true" delete="true"
+					edit="true">
+				<sheet>
+					<group>
+						<field name="emp_id" style="width: 300px" />
+						<field name="register_code" style="width: 300px" />
+						<field name="register_fullname" style="width: 300px" />
+						<field name="register_org" style="width: 300px" />
+						<field name="register_department" style="width: 300px" />
+						<field name="register_division" style="width: 300px" />
+<!-- 						<field name="register_session" style="width: 300px" /> -->
+						<field name="event_name_id" string="Event" options="{'create': true ,'create_edit': true}" style="width: 300px" />
+						<field name="register_date" style="width: 300px" />
+					</group>
+				</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_nstda_rev_registration_tree">
+			<field name="name">nstda.rev.registration.tree</field>
+			<field name="model">nstda.rev.registration</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="nstda_rev_registration_tree" create="true" delete="true">
+						<field name="register_code" />
+						<field name="emp_name"/>
+	     				<field name="emp_org" />
+	     				<field name="emp_dvs" />
+	     				<field name="emp_dpm" />
+						<!-- 
+						<field name="emp_id" />
+						<field name="register_fullname" />
+						<field name="register_org" />
+						<field name="register_department" />
+						<field name="register_division" />
+						<field name="register_session" /> -->
+						<field name="event_name_id" />
+						<field name="register_date_cal" />
+				
+						
+				</tree>
+			</field>			
+		</record>
+		
+			<record model="ir.ui.view" id="nstda_alt_retire_search_view">
+			<field name="name">nstda.rev.registration.search</field>
+			<field name="model">nstda.rev.registration</field>
+			<field name="arch" type="xml">
+				<search string="Generate Code">
+							<field name="emp_id" string="ทั้งหมด"
+						filter_domain="['|',
+		                ('emp_id','=',self),
+		                ('event_name_id','ilike',self),
+						]" />
+						
+				<group expand="1" string="Group By...">
+						<filter icon="terp-partner" name="group_datejob" string="กิจกรรม"
+							context="{'group_by':'event_name_id'}" />
+			
+					</group>
+
+				</search>
+			</field>
+		</record>
+		
+	</data>
+</openerp>

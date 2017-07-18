@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+	<data>
+		<menuitem name="Smart Event" id="menu_nstda_rev" />
+		
+		<record model="ir.ui.menu" id="menu_nstda_rev">
+			<field name="app3digi">rev</field>
+		</record>
+		
+		<menuitem name="Menu" id="menu_nstda_rev_main" parent="menu_nstda_rev" />
+		<!-- Search View -->
+		<record model="ir.ui.view" id="nstda_rev_registration_search_view">
+			<field name="name">nstda.rev.registration.search</field>
+			<field name="model">nstda.rev.registration</field>
+			<field name="arch" type="xml">
+				<search string="registration">
+					<field string="ทั้งหมด" name="register_fullname"
+						filter_domain="['|','|','|','|',
+						('register_id','ilike',self),
+		                ('register_fullname','ilike',self),
+		                ('register_org','ilike',self),
+		                ('register_department','ilike',self),
+		                ('register_division','ilike',self),
+						('register_date','ilike',self),
+						('reg_event_ids','ilike',self)
+						]" />
+					<field name="register_code" string="id/code/mobile no." filter_domain="[('register_id','ilike',self)]" />
+					<field name="register_fullname" string="ชื่อ-นามสกุล " filter_domain="[('register_fullname','ilike',self)]" />
+					<field name="register_org" string="Type" filter_domain="[('register_type','ilike',self)]" />
+					<field name="register_department" string="ฝ่าย/บริษัท/มหาลัย" filter_domain="[('register_division','ilike',self)]" />
+					<field name="register_division" string="Division" filter_domain="[('register_division','ilike',self)]" />
+					<field name="register_date" string="วันที่ลงทะเบียน" filter_domain="[('register_date','ilike',self)]" />
+					<field name="event_name_id" string="Event Name" filter_domain="[('reg_event_ids','ilike',self)]" />
+					<newline />
+					 <group expand="0" string="Group By...">
+                        <filter string="ผู้ลงทะเบียน" domain="[]" context="{'group_by':'register_code'}"/>
+                        <filter string="Event Name" domain="[]" context="{'group_by':'event_name_id'}"/>
+                    </group>
+				</search>
+			</field>
+		</record>
+		
+		<record model="ir.ui.view" id="nstda_rev_event_search_view">
+			<field name="name">nstda.rev.event.search</field>
+			<field name="model">nstda.rev.event</field>
+			<field name="arch" type="xml">
+				<search string="Event">
+					<field name="event_name" string="Event Name" />
+				</search>
+			</field>
+		</record>
+		
+
+		<record model="ir.actions.act_window" id="action_nstda_rev_registration">
+			<field name="name">Registration</field>
+			<field name="res_model">nstda.rev.registration</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+			
+		<menuitem name="Registration" id="menu_nstda_rev_registration"
+			action="action_nstda_rev_registration" parent="menu_nstda_rev_main"
+			sequence="1" />
+
+		<record model="ir.actions.act_window" id="action_nstda_rev_event">
+			<field name="name">Event</field>
+			<field name="res_model">nstda.rev.event</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Event" id="menu_nstda_rev_event"
+			action="action_nstda_rev_event" parent="menu_nstda_rev_main"
+			sequence="2" />
+			
+	</data>
+</openerp>

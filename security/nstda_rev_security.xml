@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<openerp>
+	<data>
+		<record model="res.groups" id="base.group_nstda_rev_admin">
+			<field name="name">admin</field>
+			<field name="category_id" ref="base.module_category_nstda_rev" />
+			<field name="implied_ids" eval="[]" />
+			<field name="users" eval="[(4, ref('nstdaperm.group_nstda_emp005359')),
+									   (4, ref('nstdaperm.group_nstda_emp002245')),
+									   (4, ref('nstdaperm.group_nstda_emp005452')),
+									    (4, ref('nstdaperm.group_nstda_emp005512')),
+									   (4, ref('nstdaperm.group_nstda_emp004635'))] "/>
+		</record>
+
+	</data>
+</openerp>

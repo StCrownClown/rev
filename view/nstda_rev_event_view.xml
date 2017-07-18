@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="view_nstda_rev_event_form">
+			<field name="name">nstda.rev.event.form</field>
+			<field name="model">nstda.rev.event</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="nstda_rev_event" create="true" delete="true"
+					edit="true">
+				<sheet>
+					<group>
+						<field name="event_name" />
+						<field name="event_reg_ids" string="ผู้ร่วมงาน" />
+					</group>
+				</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_nstda_rev_event_tree">
+			<field name="name">nstda.rev.event.tree</field>
+			<field name="model">nstda.rev.event</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="nstda_rev_event_tree" create="true" delete="true">
+						<field name="event_name" />
+				</tree>
+			</field>			
+		</record>
+		
+	</data>
+</openerp>
