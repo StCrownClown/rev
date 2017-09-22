@@ -12,7 +12,9 @@
 				<sheet>
 					<group>
 						<field name="event_name" />
+						<field name="create_date" />
 						<field name="event_reg_ids" string="ผู้ร่วมงาน" />
+						<field name="owner_ids" />
 					</group>
 				</sheet>
 				</form>
@@ -26,6 +28,7 @@
 			<field name="arch" type="xml">
 				<tree string="nstda_rev_event_tree" create="true" delete="true">
 						<field name="event_name" />
+							<field name="create_date" />
 				</tree>
 			</field>			
 		</record>

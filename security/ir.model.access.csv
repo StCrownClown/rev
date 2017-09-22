@@ -1,3 +1,7 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 access_nstda_rev_event,event,model_nstda_rev_event,base.group_nstda_rev_admin,1,1,1,1
 access_nstda_rev_registration,registration,model_nstda_rev_registration,base.group_nstda_rev_admin,1,1,1,1
+access_nstda_rev_owner,owner,model_nstda_rev_owner,base.group_nstda_rev_admin,1,1,1,1
+access_nstda_rev_event,event,model_nstda_rev_event,base.group_nstda_rev_user,1,1,1,1
+access_nstda_rev_registration,registration,model_nstda_rev_registration,base.group_nstda_rev_user,1,1,1,1
+access_nstda_rev_owner,owner,model_nstda_rev_owner,base.group_nstda_rev_user,1,1,1,1

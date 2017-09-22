@@ -34,16 +34,18 @@
 				<tree string="nstda_rev_registration_tree" create="true" delete="true">
 						<field name="register_code" />
 						<field name="emp_name"/>
-	     				<field name="emp_org" />
+						
+	     					<!--	<field name="emp_org" />
 	     				<field name="emp_dvs" />
 	     				<field name="emp_dpm" />
-						<!-- 
+				 
 						<field name="emp_id" />
 						<field name="register_fullname" />
 						<field name="register_org" />
 						<field name="register_department" />
 						<field name="register_division" />
 						<field name="register_session" /> -->
+						
 						<field name="event_name_id" />
 						<field name="register_date_cal" />
 				

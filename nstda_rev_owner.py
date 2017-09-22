@@ -12,14 +12,13 @@ from openerp import SUPERUSER_ID
 from docutils.parsers import null
 from openerp.exceptions import ValidationError
 
-class nstda_rev_event(models.Model):
+class nstda_rev_owner(models.Model):
 
     
-    _name = 'nstda.rev.event'
-    _rec_name = 'event_name'
-    event_name = fields.Char('Event Name')
-    event_reg_ids = fields.One2many('nstda.rev.registration','event_name_id','Register Code')
-    owner_ids = fields.One2many('nstda.rev.owner','event_name_id','ผู้รับผิดชอบ')
+    _name = 'nstda.rev.owner'
+    _rec_name = 'event_name_id'
+    event_name_id = fields.Many2one('nstda.rev.event','Event Name')
+    res_user_id = fields.Many2one('res.users','Res User ID')
     
     
     #@api.one

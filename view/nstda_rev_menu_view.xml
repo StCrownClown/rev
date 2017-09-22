@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <openerp>
 	<data>
-		<menuitem name="Smart Event" id="menu_nstda_rev" />
+		<menuitem name="Smart Event" id="menu_nstda_rev" groups="base.group_nstda_rev_user"/>
 		
 		<record model="ir.ui.menu" id="menu_nstda_rev">
 			<field name="app3digi">rev</field>
@@ -72,6 +72,17 @@
 		<menuitem name="Event" id="menu_nstda_rev_event"
 			action="action_nstda_rev_event" parent="menu_nstda_rev_main"
 			sequence="2" />
+			
+			<record model="ir.actions.act_window" id="action_nstda_rev_owner">
+			<field name="name">Owner</field>
+			<field name="res_model">nstda.rev.owner</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem name="Owner" id="menu_nstda_rev_owner"
+			action="action_nstda_rev_owner" parent="menu_nstda_rev_main"
+			sequence="3" groups="base.group_nstda_rev_admin"/>
 			
 	</data>
 </openerp>

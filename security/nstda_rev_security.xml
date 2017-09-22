@@ -1,16 +1,71 @@
 <?xml version="1.0"?>
 <openerp>
 	<data>
+		<record model="res.groups" id="base.group_nstda_rev_user">
+			<field name="name">User rev</field>
+			<field name="category_id" ref="base.module_category_nstda_rev" />
+			<field name="implied_ids" eval="[]" />
+		</record>
+		
 		<record model="res.groups" id="base.group_nstda_rev_admin">
 			<field name="name">admin</field>
 			<field name="category_id" ref="base.module_category_nstda_rev" />
-			<field name="implied_ids" eval="[]" />
-			<field name="users" eval="[(4, ref('nstdaperm.group_nstda_emp005359')),
-									   (4, ref('nstdaperm.group_nstda_emp002245')),
-									   (4, ref('nstdaperm.group_nstda_emp005452')),
-									    (4, ref('nstdaperm.group_nstda_emp005512')),
-									   (4, ref('nstdaperm.group_nstda_emp004635'))] "/>
+			<field name="implied_ids" eval="[(4, ref('base.group_nstda_rev_user'))]"  />
+			<field name="users" eval="[(4, ref('base.user_root'))] "/>
 		</record>
-
+		
+			
+		<record model="res.groups" id="nstdaperm.group_nstda_user">
+			<field name="implied_ids" eval="[(4, ref('base.group_nstda_rev_user')),]"/>
+ 		</record>
+		
+		# ===== Rule User
+		# Rule User Owner
+		<record id="rule_rev_reg_owner" model="ir.rule">
+			<field name="name">NSTDA REV REGIS</field>
+			<field name="model_id" ref="model_nstda_rev_registration" />
+			<field name="groups" eval="[(4, ref('base.group_nstda_rev_user'))]" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_unlink" eval="False" />
+			<field name="domain_force">[('event_name_id.owner_ids.res_user_id','=',user.id)]</field>
+		</record>
+		
+		<record id="rule_rev_event_owner" model="ir.rule">
+			<field name="name">NSTDA REV Event</field>
+			<field name="model_id" ref="model_nstda_rev_event" />
+			<field name="groups" eval="[(4, ref('base.group_nstda_rev_user'))]" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_unlink" eval="False" />
+			<field name="domain_force">[('owner_ids.res_user_id','=',user.id)]</field>
+		</record>
+		
+			<record id="rule_rev_reg_owner_admin" model="ir.rule">
+			<field name="name">NSTDA REV REGIS admin</field>
+			<field name="model_id" ref="model_nstda_rev_registration" />
+			<field name="groups" eval="[(4, ref('base.group_nstda_rev_admin'))]" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_unlink" eval="False" />
+			<field name="domain_force">[]</field>
+		</record>
+		
+		<record id="rule_rev_event_owner_admin" model="ir.rule">
+			<field name="name">NSTDA REV Event admin</field>
+			<field name="model_id" ref="model_nstda_rev_event" />
+			<field name="groups" eval="[(4, ref('base.group_nstda_rev_admin'))]" />
+			<field name="perm_read" eval="True" />
+			<field name="perm_write" eval="True" />
+			<field name="perm_create" eval="True" />
+			<field name="perm_unlink" eval="False" />
+			<field name="domain_force">[]</field>
+		</record>
+		
+		
+		
 	</data>
 </openerp>

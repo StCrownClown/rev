@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+	<data>
+	
+		<record model="ir.ui.view" id="view_nstda_rev_owner_form">
+			<field name="name">nstda.rev.owner.form</field>
+			<field name="model">nstda.rev.owner</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="nstda_rev_owner" create="true" delete="true"
+					edit="true">
+				<sheet>
+					<group>
+						<field name="event_name_id" style="width: 300px" />
+						
+						<field name="res_user_id" style="width: 300px" />
+
+					</group>
+				</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="view_nstda_rev_owner_tree">
+			<field name="name">nstda.rev.owner.tree</field>
+			<field name="model">nstda.rev.owner</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="nstda_rev_owner_tree" create="true" delete="true">
+						<field name="event_name_id" />
+						<field name="res_user_id" />
+				
+				
+						
+				</tree>
+			</field>			
+		</record>
+		
+		
+	</data>
+</openerp>
